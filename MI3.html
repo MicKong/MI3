@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>纯代码米3</title>
+    <style>
+        .mi {
+            width: 330px;
+            height: 600px;
+            border: 1px solid #ccc;
+            margin: 10px auto 0;
+            border-radius: 4px;
+            padding: 0 10px 0;
+            background-color: #F6F4EB;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+            position: relative;
+        }
+
+        .mi::before {
+            content: "";
+            width: 3px;
+            height: 100px;
+            position: absolute;
+            top: 100px;
+            right: -2px;
+            border-radius: 10px;
+            background-color: #EAE9EE;
+            box-shadow: 1px 0 2px rgba(0, 0, 0, .5) inset, 1px 0 20px rgba(0, 0, 0, .5);
+        }
+
+        .mi::after {
+            content: "";
+            width: 3px;
+            height: 40px;
+            position: absolute;
+            top: 230px;
+            right: -2px;
+            border-radius: 10px;
+            background-color: #EAE9EE;
+            box-shadow: 1px 0 2px rgba(0, 0, 0, .5) inset, 1px 0 20px rgba(0, 0, 0, .5);
+        }
+
+        .main {
+            border: 5px solid #0E0D13;
+            border-radius: 2px;
+            background-color: #1f1f1f;
+        }
+
+        .top {
+            height: 62px;
+            background-color: #1f1f1f;
+            position: relative;
+        }
+
+        .logo {
+            width: 22px;
+            height: 20px;
+            background-color: #a4a4a4;
+            position: absolute;
+            left: 10px;
+            bottom: 12px;
+            border-top-right-radius: 7px;
+        }
+
+        .logo::before {
+            content: "";
+            width: 6px;
+            height: 12px;
+            background-color: #a4a4a4;
+            position: absolute;
+            left: 5px;
+            top: 6px;
+            border-top: 2px solid #1f1f1f;
+            border-left: 3px solid #1f1f1f;
+            border-right: 2px solid #1f1f1f;
+            border-top-right-radius: 3px;
+        }
+
+        .logo:after {
+            content: "";
+            width: 6px;
+            height: 20px;
+            background-color: #a4a4a4;
+            position: absolute;
+            right: -8px;
+            top: 0px;
+            border-radius: 1px;
+        }
+
+        .camera {
+            width: 22px;
+            height: 15px;
+            position: absolute;
+            top: 12px;
+            left: 65px;
+            background-color: black;
+            border-radius: 25px;
+        }
+
+        .camera::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background-color: #A020F0;
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #000 inset;
+        }
+
+        .listener {
+            width: 60px;
+            height: 8px;
+            background-color: #333;
+            position: absolute;
+            top: 20px;
+            left: 130px;
+            border-radius: 10px;
+            box-shadow: 1px -1px 1px rgba(255, 255, 255, .3) inset;
+        }
+
+        .infrared {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 20px;
+            right: 100px;
+            border-radius: 50%;
+            background-color: #000;
+            box-shadow: 0 0 8px rgba(255, 255, 255, .5) inset;
+        }
+
+        .lamp {
+            position: absolute;
+            width: 10px;
+            height: 5px;
+            top: 22px;
+            right: 65px;
+            background-color: #00CD00;
+            border-radius: 20px;
+        }
+
+        .content {
+            height: 459px;
+            width: 300px;
+            margin: auto;
+            position: relative;
+        }
+
+        .content::before {
+            content: "";
+            width: 300px;
+            height: 459px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: -webkit-linear-gradient(top left, rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0) 90%)
+        }
+
+        .bottom {
+            height: 69px;
+            padding:25px 50px;
+            box-sizing:border-box;
+        }
+
+        @font-face {
+            font-family: "iconfont";
+            src: url('AliIconFont/iconfont.eot?t=1527318986293'); /* IE9*/
+            src: url('AliIconFont/iconfont.eot?t=1527318986293#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('AliIconFont/iconfont.ttf?t=1527318986293') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+            url('AliIconFont/iconfont.svg?t=1527318986293#iconfont') format('svg'); /* iOS 4.1- */
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 20px;
+            font-style: normal;
+            color: #ccc;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .icon-home:before {
+            content: "\e610";
+            margin:0 70px;
+        }
+
+        .icon-menu:before {
+            content: "\e63c";
+        }
+
+        .icon-return:before {
+            content: "\e62e";
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var opacity = 10;
+            var step = 1;
+            setInterval(function () {
+
+                if (opacity == 0) {
+                    step = -1;
+                } else if (opacity == 10) {
+                    step = 1;
+                }
+
+                opacity -= step;
+
+                document.getElementById("lamp").style.opacity = opacity / 10;
+
+            }, 150);
+        }
+    </script>
+</head>
+<body>
+<div class="mi">
+    <div class="main">
+        <div class="top">
+            <div class="logo"></div>
+            <div class="camera"></div>
+            <div class="listener"></div>
+            <div class="infrared"></div>
+            <div class="lamp" id="lamp"></div>
+        </div>
+
+        <div class="content">
+            <div class="content-in">
+
+            </div>
+        </div>
+
+        <div class="bottom">
+            <span class="iconfont icon-menu"></span>
+            <span class="iconfont icon-home"></span>
+            <span class="iconfont icon-return"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
