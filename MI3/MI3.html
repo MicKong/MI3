@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>原生米3</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<div class="mi">
+    <!--音量键和开关-->
+    <div class="volume">
+        <a id="add" href="javascript:;"></a>
+        <a id="dec" href="javascript:;"></a>
+    </div>
+
+    <div id="switch" class="switch">
+        <a href="javascript:;"></a>
+    </div>
+
+    <!--遮挡层-->
+    <div id="mask" class="mask"></div>
+
+    <!--机身主体-->
+    <div class="main">
+        <div class="top">
+            <div class="logo"></div>
+            <div class="camera"></div>
+            <div class="listener"></div>
+            <div class="infrared"></div>
+            <div class="lamp" id="lamp"></div>
+        </div>
+
+        <!--屏幕-->
+        <div id="content" class="content">
+
+            <!--弹出音量-->
+            <div id="volumeBar" class="iconfont">
+                <div id="vol">&#xe60f;</div>
+                <div class="vProgress">
+                    <div id="vLine"></div>
+                    <div id="vDot"></div>
+                    <div id="vBar"></div>
+                </div>
+            </div>
+
+            <ul class="time">
+                <li>99%</li>
+                <li class="iconfont">&#xe620;</li>
+            </ul>
+
+            <ul class="songName">
+                <li class="iconfont">&#xe611;</li>
+                <li id="songName">毕业之后</li>
+                <li class="iconfont">&#xe679;</li>
+            </ul>
+
+            <ul class="soundEffect">
+                <li>标准</li>
+                <li>音效</li>
+            </ul>
+
+            <div id="cover" class="cover" style="background:url('images/album01.jpg') center top/cover;"></div>
+
+            <div class="play">
+                <audio id="audio"
+                       src="mp3/C400001nk3np4DcDvG.m4a"></audio>
+
+                <div class="timer">
+                    <div id="current" class="current">00:00</div>
+                    <!--播放进度-->
+                    <div class="progress">
+                        <div id="line" class="line"></div>
+                        <div id="dot" class="dot"></div>
+                        <div id="bar" class="bar"></div>
+                    </div>
+                    <div id="total" class="total">00:00</div>
+                </div>
+                <ul>
+                    <li class="iconfont">&#xe649;</li>  <!--之前用unicode方式引入,现在试试font-class方式-->
+                    <li id="previous" class="iconfont">&#xe78a;</li>
+                    <li id="playBtn" class="iconfont">&#xe774;</li>
+                    <li id="next" class="iconfont">&#xe7a5;</li>
+                    <li class="iconfont">&#xe640;</li>
+                </ul>
+            </div>
+
+            <ul class="love">
+                <li class="iconfont">&#xe602;</li>
+                <li class="iconfont">&#xe63e;</li>
+                <li class="iconfont">&#xe609;</li>
+                <li class="iconfont">&#xe658;</li>
+            </ul>
+
+        </div>
+
+        <div id="bottom" class="bottom">
+            <span class="iconfont">&#xe65f;</span>
+            <span id="home" class="iconfont">&#xe603;</span>
+            <span class="iconfont">&#xe62e;</span>
+        </div>
+    </div>
+</div>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>
