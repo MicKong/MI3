@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全屏切换</title>
+    <link rel="stylesheet" href="css/jquery.fullpage.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<!-- 公用的元素 -->
+<a href="#" class="go">
+    <img src="images/00-go.png">
+</a>
+<a href="javascript:;" class="more">
+    <img src="images/00-more.png">
+</a>
+
+<!-- 整体容器 -->
+<div class="container">
+    <div class="section screen01">
+        <!-- 如果是大屏幕,基于top定位就会脱离显示区域,这里选择的方案是用固定大小容器将其固定在一个区域-->
+        <div class="content">
+            <!-- 商品列表、沙发、横幅 -->
+            <div class="goods"><img src="images/01-goods.png"></div>
+            <div class="sofa"><img src="images/01-sofa.png"></div>
+            <div class="fly"><img src="images/01-fly.png"></div>
+        </div>
+    </div>
+
+    <!-- 第一屏动画是页面加载就开始执行,第二屏动画是完全进入当前屏的时候才执行
+               要考虑两点：
+               1.什么时候完全进入。既然是fullpage提供的屏幕切换,那就去看下有没有监听某屏完全加载的事件
+               2.如何做动画。可以直接加属性,也可用className的形式,这里选的方案是给大容器
+                 加一个类,在这个类下面可给需要做动画的元素添加动画属性
+      -->
+    <div class="section screen02">
+        <div class="content">
+            <div class="goods">
+                <img src="images/02-goods.png">
+            </div>
+            <div class="sofa">
+                <img src="images/02-sofa.png">
+            </div>
+            <div class="input">
+                <img class="search" src="images/02-search.png">
+                <img class="key" src="images/02-key.png">
+            </div>
+            <div class="text">
+                <img class="text01" src="images/02-text1.png">
+                <img class="text02" src="images/02-text2.png">
+            </div>
+        </div>
+    </div>
+
+    <!-- 第三屏 -->
+    <div class="section screen03">
+        <div class="content">
+            <div class="sofa"><img src="images/02-sofa.png"></div>
+            <div class="change">
+                <img src="images/03-change01.gif">
+                <img src="images/03-change02.gif">
+            </div>
+            <div class="cart">
+                <img src="images/03-cart01.gif">
+                <img src="images/03-cart02.gif">
+            </div>
+        </div>
+    </div>
+
+    <!-- 第四屏 -->
+    <div class="section screen04">
+        <div class="content">
+            <div class="cloud"> <!-- 白云 -->
+                <img src="images/04-cloud.png">
+            </div>
+
+            <div class="text"><!-- 文字 -->
+                <img src="images/04-text01.png">
+                <img src="images/04-text02.png">
+            </div>
+
+            <div class="cart"> <!-- 购物车 -->
+                <img src="images/04-cart.png">
+            </div>
+            <div class="sofa"><!-- 沙发 -->
+                <img src="images/02-sofa.png">
+            </div>
+            <!-- 收货地址 -->
+            <div class="address">
+                <img src="images/04-address01.png">
+                <img src="images/04-address02.png">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 第五屏 -->
+    <div class="section screen05">
+        <div class="content">
+            <div>
+                <img src="images/05-text.png">
+            </div>
+
+            <!--银行卡-->
+            <div class="card">
+                <img class="cardImg" src="images/05-card.png">
+                <img class="orderImg" src="images/05-order.png">
+            </div>
+
+            <!--沙发-->
+            <div class="sofa">
+                <img src="images/02-sofa.png">
+            </div>
+
+            <div class="mouse">
+                <img class="m1" src="images/05-mouse01.png">
+                <img class="m2" src="images/05-mouse02.png">
+            </div>
+        </div>
+    </div>
+
+    <!-- 第六屏 -->
+    <div class="section screen06">
+        <div class="content">
+            <!--白云-->
+            <div class="cloud">
+                <img src="images/06-cloud01.png">
+                <img src="images/06-cloud02.png">
+            </div>
+
+            <!--文字-->
+            <div class="text">
+                <img src="images/06-text01.png">
+                <img src="images/06-text02.png">
+            </div>
+
+            <!--包裹-->
+            <div class="box">
+                <img src="images/06-box.png">
+            </div>
+
+            <div class="car">
+                <img class="carImg" src="images/06-car.png">
+                <img class="buyer" src="images/06-buyer.png" alt="">
+                <img class="address" src="images/06-address.png" alt="">
+                <img class="worker" src="images/06-worker.png" alt="">
+                <img class="say" src="images/06-say.png" alt="">
+            </div>
+
+            <div class="person">
+                <img class="personImg" src="images/06-person.png" alt="">
+                <img class="door" src="images/06-door.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- 第七屏 -->
+    <div class="section screen07">
+        <div class="content">
+            <div class="star">
+                <img src="images/07-star.png" alt="">
+                <img src="images/07-star.png" alt="">
+                <img src="images/07-star.png" alt="">
+                <img src="images/07-star.png" alt="">
+                <img src="images/07-star.png" alt="">
+            </div>
+            <div class="text">
+                <img src="images/07-text.png">
+            </div>
+        </div>
+    </div>
+
+    <!-- 第八屏 -->
+    <div class="section screen08">
+        <div class="content">
+            <div class="btn">
+                <img src="images/08-btn01.png" alt="">
+                <img src="images/08-btn02.gif" alt="">
+            </div>
+
+            <!--<div class="hand">-->
+                <!--<img src="images/02-sofa.png" alt="">-->
+            <!--</div>-->
+
+            <div class="again">
+                <img src="images/08-again.png" alt="">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.fullpage.js"></script>
+<script src="js/index.js"></script>
+
+</body>
+</html>
