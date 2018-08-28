@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 1300px;
+        }
+
+        #box {
+            width: 1200px;
+            height: 400px;
+            border: 2px solid #ccc;
+            margin: 100px auto;
+        }
+
+        #box li {
+            width: 240px;
+            height: 400px;
+            /*border: 1px solid #000;*/
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        var $li = $("#box li");
+        for(var i = 0; i < $li.length; i++){
+            $li.eq(i).css("backgroundImage","url(images/a"+ (i+1) +".jpg)");
+        }
+
+        /*stop():停止当前正在执行的动画,有动画没,有就先停止
+          stop(clearQueue,jumpToEnd)
+          第一个参数:是否清除队列
+          第二个参数:是否跳转到最终效果,两个参数都是boolean类型*/
+        $li.mouseenter(function () {
+            $(this).stop().animate({width:800}).siblings("li").stop().animate({width:100});
+        }).mouseout(function () {
+            $li.stop().animate({width:240});
+        });
+
+    });
+</script>
+</body>
+</html>

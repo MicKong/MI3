@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            width: 400px;
+            margin: 100px auto;
+            cursor:pointer;
+        }
+        ul li {
+            list-style: none;
+            font-size: 3em;
+            color: #2c323b;
+            float: left;
+            margin-right: 3px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+</ul>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+
+    $(function () {
+
+        var start_k = "☆";
+        var start_s = "⭐";
+
+        $("ul li").on("mouseenter", function () {
+            $(this).text(start_s).prevAll().text(start_s);
+            $(this).nextAll().text(start_k);
+        });
+
+        $("ul").on("mouseleave", function () {
+            $(this).children().text(start_k);
+            $("li.current").text(start_s).prevAll().text(start_s); //找到标记,并把此标记和前面的星变实心
+        });
+
+        $("ul li").on("click",function () { //做个标记,可以加属性也可加类样式
+           $(this).addClass("current").siblings().removeClass("current");
+        });
+
+    });
+
+</script>
+</body>
+</html>

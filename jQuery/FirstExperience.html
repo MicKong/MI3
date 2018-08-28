@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {
+            width: 180px;
+            height: 38px;
+            outline: none;
+            background-color: #3db9ec;
+            border: 0;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        div {
+            height: 100px;
+            background-color: #3d98ff;
+            display: none;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="显示" id="btn1">
+<input type="button" value="添加" id="btn2">
+<div></div>
+<div></div>
+<div></div>
+
+ <script src="js/jquery-1.12.4.js"></script>
+ <script>
+     /*入口函数的标准,如果script标签写在body底下,则入口函数可不写,但推荐都写上
+       这样可确保标签都加载完毕,另一方面则更灵活,因为可以随意摆放script的位置 */
+     $(document).ready(function () {
+         //注册事件,把on去掉
+         $("#btn1").click(function () { //点击按钮显示div
+             $("div").show(1000); //隐式迭代,底层自动遍历好
+         });
+
+         $("#btn2").click(function () { //点击按钮为div添加内容
+             $("div").text("我来啦");
+         });
+     });
+
+</script>
+</body>
+</html>

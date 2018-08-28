@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹幕</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: "Microsoft YaHei";
+        }
+
+        .boxDom {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .idDom {
+            width: 100%;
+            height: 100px;
+            background-color: #2c323b;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .content {
+            display: inline-block;
+            width: 430px;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            line-height: 100px;
+        }
+
+        .title {
+            display: inline;
+            font-size: 1.5em;
+            color: #fff;
+            vertical-align: top;
+        }
+
+        .content .text {
+            width: 240px;
+            height: 32px;
+            outline: none;
+            border: 0;
+            border-radius: 4px;
+            padding: 0 5px;
+            margin: 0 10px 0;
+        }
+
+        .content button {
+            width: 80px;
+            height: 30px;
+            color: #fff;
+            background-color: orangered;
+            border: 0;
+            outline: none; vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div class="boxDom" id="boxDom">
+    <div class="idDom" id="idDom">
+        <div class="content">
+            <p class="title">吐槽</p>
+            <input type="text" class="text" id="text">
+            <button type="button" class="btn" id="btn">发射</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        var colors = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+
+        $("#btn").click(function () {
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += colors[parseInt(Math.random() * 16)];
+            }
+
+            var randomY = parseInt(Math.random() * 500);
+
+            $("<span></span>")
+                .text($("#text").val())
+                .css({"position": "absolute","width":"800px",
+                    "color": color,
+                    "left": "1400px",
+                    "top": randomY,
+                    "fontSize": "30px"})
+                .animate({left: "-200px"}, 8000,"linear", function () {
+                    $(this).remove();
+                })
+                .appendTo(".boxDom");
+
+            $("#text").val("");
+        });
+
+        $("#text").keyup(function (e) {
+            if(e.keyCode == 13){
+                $("#btn").click();
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 8000px;
+            background:#3385ff;
+	    font-size:40px;
+            color:#fff;
+        }
+
+        a {
+            color: #FFF;
+        }
+
+        .actGotop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 150px;
+            height: 195px;
+            display: none;
+            z-index: 100;
+        }
+
+        .actGotop a, .actGotop a:link {
+            width: 150px;
+            height: 195px;
+            display: inline-block;
+            background: url(images/roket.png) no-repeat;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+假<br>装<br>有<br>内<br>容<br>
+返<br>回<br>顶<br>部<br>小<br>火<br>箭
+<!-- 返回顶部小火箭 -->
+<div class="actGotop">
+    <a href="javascript:;" title="Top">
+
+    </a>
+</div>
+
+
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+
+        //当页面超出去1000px的时候，让小火箭显示出来,如果小于1000，就让小火箭隐藏
+        $(window).scroll(function () {
+            if($(this).scrollTop() >= 1000){
+                $(".actGotop").stop().fadeIn(800);
+            }else{
+                $(".actGotop").stop().fadeOut(800);
+            }
+        });
+
+        $(".actGotop").click(function () {
+            $("html,body").stop().animate({scrollTop:0},1000);
+        });
+
+        /*$("html").animate({scrollTop:0},1000)是不行的，因为html没有scrollTop属性
+          $("html,body").animate({pageXOffset:0},1000)也不行，因为pageXOffset属性是只读的
+          写多个html是为了兼容IE*/
+
+    });
+</script>
+</body>
+</html>

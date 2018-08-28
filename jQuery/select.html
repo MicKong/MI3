@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .wrap {
+        width: 330px;
+        height: 30px;
+        margin: 100px auto 0;
+        padding-left: 10px;
+    }
+
+    .wrap li {
+        background-color: #3d98ff;
+    }
+
+    .wrap > ul > li {
+        float: left;
+        position: relative;
+    }
+
+    .wrap a {
+        display: block;
+        height: 30px;
+        width: 100px;
+        text-decoration: none;
+        color: #000;
+        line-height: 30px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .wrap li ul {
+        position: absolute;
+        top: 30px;
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>
+            <a href="javascript:void(0);">雄英A班</a>
+            <ul class="ul">
+                <li><a href="javascript:void(0);">绿谷出久</a></li>
+                <li><a href="javascript:void(0);">轰焦冻</a></li>
+                <li><a href="javascript:void(0);">爆豪</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">雄英B班</a>
+            <ul>
+                <li><a href="javascript:void(0);">拳藤一佳</a></li>
+                <li><a href="javascript:void(0);">物间宁人</a></li>
+                <li><a href="javascript:void(0);">回原旋</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">个性一览</a>
+            <ul>
+                <li><a href="javascript:void(0);">One For All</a></li>
+                <li><a href="javascript:void(0);">半热半冷</a></li>
+                <li><a href="javascript:void(0);">无重力</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        var $li = $(".wrap>ul>li");
+        $li.mouseenter(function () {
+            $(this).children("ul").show(400);
+        });
+
+        $li.mouseleave(function () {
+            $(this).children("ul").hide();
+        });
+    });
+</script>
+</body>
+</html>

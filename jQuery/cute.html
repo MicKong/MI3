@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background: #000;
+        }
+
+        .wrap {
+            margin: 100px auto 0;
+            width: 630px;
+            height: 394px;
+            padding: 10px 0 0 10px;
+            background: #000;
+            overflow: hidden;
+            border: 1px solid #fff;
+        }
+
+        .wrap li {
+            float: left;
+            margin: 0 10px 10px 0;
+
+        }
+
+        .wrap img {
+            display: block;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li><a href="#"><img src="images/01.jpg"></a></li>
+        <li><a href="#"><img src="images/02.jpg"></a></li>
+        <li><a href="#"><img src="images/03.jpg"></a></li>
+        <li><a href="#"><img src="images/04.jpg"></a></li>
+        <li><a href="#"><img src="images/05.jpg"></a></li>
+        <li><a href="#"><img src="images/06.jpg"></a></li>
+    </ul>
+</div>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $(".wrap>ul>li").mouseenter(function () {
+            //js中难找兄弟元素,所以for循环原本改变后再单独设置当前对象的样式,但jq就不同了
+            $(this).css("opacity",1).siblings("li").css("opacity",0.4);
+            //链式编程,返回的都是jq对象,所以可一直点下去
+        });
+
+        $(".wrap>ul").mouseleave(function () {
+            //$("li");
+            //$(this).children().children("li");
+            $(this).find("li").css("opacity",1);
+        });
+    });
+</script>
+</body>
+</html>
