@@ -1,0 +1,479 @@
+﻿/*================================ reset css ==================================*/
+*{
+    margin:0;
+    padding:0;
+}
+ul{
+    list-style: none;
+}
+body { /*去除文本选中时的蓝色背景*/
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;  /*移动端特有,点击高亮效果*/
+}
+/*================================ model css ==================================*/
+.mi {
+    width: 330px;
+    height: 620px;
+    border: 1px solid #ccc;
+    margin: 10px auto 0;
+    border-radius: 4px;
+    padding: 0 10px 0;
+    background-color: #F6F4EB;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    position: relative;
+    cursor:pointer;
+}
+
+.mi .volume{
+    width: 3px;
+    height: 100px;
+    position: absolute;
+    top: 100px;
+    right: -2px;
+    border-radius: 10px;
+    background-color: #EAE9EE;
+    box-shadow: 1px 0 2px rgba(0, 0, 0, .5) inset, 1px 0 20px rgba(0, 0, 0, .5);
+}
+
+.mi .volume a{
+    width:10px;
+    height:50px;
+    float: left;
+}
+
+.mi .switch{
+    width: 3px;
+    height: 40px;
+    position: absolute;
+    top: 230px;
+    right: -2px;
+    border-radius: 10px;
+    background-color: #EAE9EE;
+    box-shadow: 1px 0 2px rgba(0, 0, 0, .5) inset, 1px 0 20px rgba(0, 0, 0, .5);
+}
+
+.mi .switch a{
+    display: block;
+    width:10px;
+    height:50px;
+}
+
+.mi .mask{
+    height: 488px;
+    width: 300px;
+    top:67px;
+    left:25px;
+    position: absolute;
+    z-index: 99;
+    background:#000 -webkit-linear-gradient(top left,rgba(255,255,255,0.2),rgba(255,255,255,0.1) 90%);
+    opacity: 1;
+
+}
+
+.mi .mask.show{
+    opacity: 0;
+    transition: 0.5s linear;
+    z-index: 0;
+}
+
+.main {
+    border: 5px solid #0E0D13;
+    border-radius: 4px;
+    background-color: #1f1f1f;
+    box-shadow: 0 0 2px rgba(0,0,0,.5);
+}
+
+.top {
+    height: 62px;
+    background-color: #1f1f1f;
+    position: relative;
+}
+
+.logo {
+    width: 22px;
+    height: 22px;
+    background-color: #a4a4a4;
+    position: absolute;
+    left: 10px;
+    bottom: 12px;
+    border-top-right-radius: 7px;
+}
+
+.logo::before {
+    content: "";
+    width: 6px;
+    height: 14px;
+    background-color: #a4a4a4;
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    border-top: 2px solid #1f1f1f;
+    border-left: 3px solid #1f1f1f;
+    border-right: 2px solid #1f1f1f;
+    border-top-right-radius: 3px;
+}
+
+.logo:after {
+    content: "";
+    width: 6px;
+    height: 22px;
+    background-color: #a4a4a4;
+    position: absolute;
+    right: -8px;
+    top: 0px;
+    border-radius: 1px;
+}
+
+.camera {
+    width: 22px;
+    height: 15px;
+    position: absolute;
+    top: 12px;
+    left: 65px;
+    background-color: black;
+    border-radius: 25px;
+}
+
+.camera::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #A020F0;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #000 inset;
+}
+
+.listener {
+    width: 60px;
+    height: 8px;
+    background-color: #333;
+    position: absolute;
+    top: 20px;
+    left: 130px;
+    border-radius: 10px;
+    box-shadow: 1px -1px 1px rgba(255, 255, 255, .3) inset;
+}
+
+.infrared {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 20px;
+    right: 100px;
+    border-radius: 50%;
+    background-color: #000;
+    box-shadow: 0 0 8px rgba(255, 255, 255, .5) inset;
+}
+
+.lamp {
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    top: 22px;
+    right: 65px;
+    background-color: #00CD00;
+    border-radius: 20px;
+}
+
+
+.content {
+    height: 488px;
+    width: 300px;
+    margin: auto;
+    position: relative;
+    background: -webkit-linear-gradient(top, rgba(44, 50, 52, 1) 0%,
+    rgba(52, 42, 38,1) 30%,rgba(56, 57, 53,1) 70%,rgba(43, 47, 42,1) 100%);
+    /*opacity: 0;*/
+    cursor:pointer;
+}
+
+.content #volumeBar{
+    width:272px;
+    height:40px;
+    background-color: #eee;
+    position: absolute;
+    top:4px;
+    left:4px;
+    border-radius: 4px;
+    z-index: 99;
+    color:#707470;
+    font-size: 18px;
+    line-height: 38px;
+    padding:0 10px;
+    opacity: 0;
+}
+
+.content #volumeBar .vProgress{
+    width:220px;
+    height:1px;
+    position: relative;
+    left:30px;
+    top:-19px;
+    background-color: #ccc;
+}
+
+.content .vProgress #vDot{
+    width:14px;
+    height:14px;
+    border-radius: 50%;
+    border:1px #707470 solid;
+    position: absolute;
+    background-color: #eee;
+    top:-8px;
+    right:-15px;
+}
+
+.content .vProgress #vBar{
+    width:100%;
+    height:120%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:3;
+}
+
+.content .vProgress #vLine{
+    height:100%;
+    background-color: #707470;
+}
+
+.main .content .time{
+    height:12px;
+    font-size: 12px;
+    padding:0 2px;
+}
+
+.content .time li{
+    float: right;
+    margin:2px 3px 0;
+}
+
+.content .time li:first-child{
+    color:#fff;
+    font-family: "Microsoft YaHei", sans-serif;
+    line-height: 12px;
+}
+
+.content .songName{
+    position: absolute;
+    top:18px;
+    padding:0 8px;
+    line-height: 16px;
+}
+
+.content .songName li{
+    float: left;
+}
+.content .songName li:first-child{
+    font-size: 24px;
+    color: #707470;
+    margin-top:-3px;
+}
+.content .songName li:nth-child(2){
+    width:234px;
+    color:  #C0C1C2;
+    font-size: 15px;
+    text-align: center;
+}
+.content .songName li:last-child{
+    margin-right: 0;
+    margin-top:3px;
+    font-size: 24px;
+    color: #707470;
+}
+
+.content .soundEffect{
+    position: absolute;
+    top:50px;
+    padding-left: 105px;
+}
+.content .soundEffect li{
+    float: left;
+    width:42px;
+    height:14px;
+    border:1px solid #707470;
+    border-radius: 3px;
+    margin-right: 8px;
+    color: #707470;
+    font-size: 12px;
+    text-align: center;
+    line-height: 14px;
+}
+
+.content .cover{
+    background:url("images/album02.jpg") center top/cover;
+    width:280px;
+    height:280px;
+    border-radius: 50%;
+    border:6px #272322 solid;
+    position: absolute;
+    left:5px;
+    top:75px;
+    opacity: 1;
+}
+
+
+@keyframes change {
+    from{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.6);
+    }
+    to{
+        transform: scale(0.6) translateY(-200px);
+        opacity: 0;
+    }
+}
+
+
+.content .play{
+    position: absolute;
+    bottom: 35px;
+    line-height: 30px;
+}
+
+.content .play .timer{
+    height:16px;
+    line-height: 16px;
+    color:#707470;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.content .play .timer>div{
+    float:left;
+    margin-left: 15px;
+}
+
+.content .play .progress{
+    width:180px;
+    height:2px;
+    background-color: #707470;
+    position: relative;
+    top:8px;
+}
+
+.content .play .line{
+    width: 0;
+    height: 100%;
+    background-color: #35BB7A;
+}
+.content .play .progress .bar {
+    width: 100%;
+    height:130%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.content .play .dot{
+    width:12px;
+    height:12px;
+    border-radius: 50%;
+    background-color:#F0F0F0;
+    position: absolute;
+    top:-5px;
+    left:0px;
+}
+
+.content .play li{
+    float: left;
+    margin-left: 26px;
+}
+
+.content .play li:first-child{
+    font-size: 22px;
+}
+
+.content .play #playBtn{
+    width:40px;
+    height:40px;
+    font-size: 25px;
+    border: #C6C8C5 2px solid;
+    border-radius:50%;
+    text-align: center;
+    line-height: 40px;
+    margin-top:-7px;
+}
+
+.content .play li:nth-child(2),
+.content .play li:nth-child(4){
+    width:25px;
+    height: 25px;
+    border:2px #c6c8c5 solid;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    font-size: 16px;
+}
+
+.content .play li:nth-child(5){
+    font-size: 18px;
+}
+
+
+.content .love{
+    position: absolute;
+    bottom: 7px;
+}
+
+.content .love li{
+    float: left;
+    margin-left: 47px;
+}
+.content .love li:first-child{
+    color: #F06A6A;
+}
+
+.bottom {
+    height: 60px;
+    padding:22px 50px;
+    box-sizing:border-box;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('../iconfont/iconfont.eot');
+    src: url('../iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../iconfont/iconfont.woff') format('woff'),
+    url('../iconfont/iconfont.ttf') format('truetype'),
+    url('../iconfont/iconfont.svg#iconfont') format('svg');
+}
+
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    color: #fff;
+}
+
+.bottom span{
+    float: left;
+    width:24px;
+    height:24px;
+    cursor:pointer;
+    color:#333;
+}
+
+.bottom.show span{
+    color:#ccc;
+    transition: 0.2s linear;
+}
+
+.bottom span:nth-child(2){
+    margin:0 68px 0 80px;
+}
+
