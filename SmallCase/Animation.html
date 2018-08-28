@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width:300px;
+            height: auto;
+
+        }
+        .box img{
+            animation:change 2s linear infinite;
+        }
+        @keyframes change{
+            0%{
+                transform:translateY(0px);
+            }
+            50%{
+                transform:translateY(15px);
+            }
+            100%{
+                transform:translateY(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="images/timg.jpg">
+</div>
+</body>
+</html>

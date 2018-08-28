@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        section{
+            width:80%;
+            height:150px;
+            margin:100px auto;
+            display: flex; /*给父级添加伸缩布局*/
+            min-width: 500px; /*父级最小不能小于500px*/
+            /*flex-direction：column,将主轴方向调整为垂直排列*/
+        }
+        section div{
+            height:100%;
+            flex:1; /*每个子级的份数*/
+        }
+        section div:nth-child(1){
+            background-color: red;
+            flex:2; /*这个子级得两份,即占父级的1/2*/
+        }
+        section div:nth-child(2){
+            background-color: green;
+            margin:0 10px; /*浮动布局margin后盒子可能会挤下来,但flex不会*/
+        }
+        section div:nth-child(3){
+            background-color: blue; /*若其中一个盒子宽度固定,则份数只分给其余的盒子*/
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+</html>

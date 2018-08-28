@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?h5uh6w');
+            src: url('fonts/icomoon.eot?h5uh6w#iefix') format('embedded-opentype'),
+            url('fonts/icomoon.ttf?h5uh6w') format('truetype'),
+            url('fonts/icomoon.woff?h5uh6w') format('woff'),
+            url('fonts/icomoon.svg?h5uh6w#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .box{
+            width:200px;
+            height:100px;
+            margin:100px auto;
+            background-color: #ccc;
+            border-radius:200px/100px;
+            box-shadow:0 -15px 15px #888 inset,
+                10px -15px 15px #444 inset,
+                -10px -15px 15px #fff inset,
+                0 6px #888,
+                -20px 25px 5px rgba(0,0,0,.3);
+            font-family: icomoon;
+            font-size: 70px;
+            line-height: 75px;
+            text-align: center;
+            transition:all 1s;
+            cursor:pointer;
+        }
+        .content{
+            color:#888;
+            transform:scale(1,0.6); /*文字扁平化*/
+            text-shadow: 3px -3px 1px #444,-3px 3px 1px #fff;
+        }
+        .box:active{
+            box-shadow:0 -15px 15px #888 inset,
+            10px -15px 15px #444 inset,
+            -10px -15px 15px #fff inset,
+            0 0 #888,
+            -5px 5px 5px rgba(0,0,0,.3);
+            transform:translateY(10px);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="content"></div>
+</div>
+</body>
+</html>

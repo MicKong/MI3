@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="Coffee.css">
+	<title>Coffee</title>
+	<style>
+body{
+	background:#efe5d0;
+	font-size:large;
+	margin:20px;
+}
+
+div#page{
+	width:800px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+div#header p{
+	font-size:2em;
+}
+
+p#tip{
+	font-size:1.1em;
+	font-weight:bold;
+}
+
+form{
+	display:table;
+	padding:10px;
+	border:thin dotted #7e7e7e;
+	background-color:#e1ceb8;
+}
+
+form div.tableRow{
+	display:table-row;
+}
+
+form div.tableRow p{
+	display:table-cell;
+	vertical-align:top;
+	padding:3px;
+}
+
+form div.tableRow p:first-child{
+	text-align:right;
+}
+
+p.heading{
+	font-weight:bold;
+}
+
+form textarea{
+	width:500px;
+	height:200px;
+}
+	</style>
+</head>
+<body>
+	<div id="page">
+	<div id="header">
+		<p>The Starbuzz Bean Machine</p>
+	</div>
+	<div id="center">
+		<p id="tip">Fill out he form below and click "order now" to order</p>
+		<form>
+			<div class="tableRow">
+				<p>Choose your beans:</p>
+				<p>
+					<select name="beans" id="beans">
+						<option value="House Blend">House Blend</option>
+						<option value="Bolivia">Bolivia</option>
+						<option value="Guatemala">Guatemala</option>
+						<option value="Kenya">Kenya</option>
+					</select>
+				</p>
+			</div>
+			<div class="tableRow">
+				<p>Type:</p>
+				<p>
+					<input type="radio" name="beantype" value="whole" id="whole_beantype">
+					<label for="whole_beantype">Whole bean</label><br>
+					<input type="radio" name="beantype" value="ground" checked id="ground_beantype">
+					<label for="ground_beantype">Ground</label>
+				</p>
+			</div>
+			<div class="tableRow">
+				<p>Number of bags:</p>
+				<p><input type="number" name="bags" min="1" max="10"></p>
+			</div>
+			<div class="tableRow">
+				<p>Must arrive by date:</p>
+				<p><input type="date" name="date"></p>
+			</div>
+			<div class="tableRow">
+				<p>Extras:</p>
+				<p>
+					<input type="checkbox" name="extras" value="giftwrap">Gift wrap<br>
+					<input type="checkbox" name="extras" value="catalog" checked>
+					Include catalog with order
+				</p>
+			</div>
+			<div class="tableRow">
+				<p class="heading">Ship to</p>
+				<p></p>
+			</div>
+			<div class="tableRow">
+				<p>Name:</p>
+				<p><input type="text" name="name" value=""></p>
+			</div>
+			<div class="tableRow">
+				<p>Address:</p>
+				<p><input type="text" name="address" value=""></p>
+			</div>
+			<div class="tableRow">
+				<p>City:</p>
+				<p><input type="text" name="city" value=""></p>
+			</div>
+			<div class="tableRow">
+				<p>State:</p>
+				<p><input type="text" name="state" value=""></p>
+			</div>
+			<div class="tableRow">
+				<p>Zip:</p>
+				<p><input type="text" name="zip" value=""></p>
+			</div>
+			<div class="tableRow">
+				<p>Phone:</p>
+				<p><input type="tel" name="phone" value=""></p>
+			</div>
+			<div class="tableRow">
+				<p>Customer Comments:</p>
+				<p>
+					<textarea name="comments" rows="10" cols="48"></textarea>
+				</p>
+			</div>
+			<div class="tableRow">
+				<p></p>
+				<p><input type="submit" value="Order Now"></p>
+			</div>
+		</form>
+	</div>
+	</div>
+</body>
+</html>
