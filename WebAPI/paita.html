@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="有本事点我呀">
+<input type="button" value="有本事点我呀">
+<input type="button" value="有本事点我呀">
+<input type="button" value="有本事点我呀">
+<input type="button" value="有本事点我呀">
+
+<script>
+    var inputs = document.getElementsByTagName("input");
+
+    //for循环在页面加载时执行完毕,所以页面加载后每个按钮都被注册了事件
+    for(var i = 0; i < inputs.length; i++){
+        //为每个按钮注册点击事件
+        inputs[i].onclick = function () {
+            //两件事,把所有按钮的值都改为"有本事点我呀"
+            for(var j = 0; j < inputs.length; j++){
+                inputs[j].value = "有本事点我呀";
+            }
+
+            // 再把被点击的按钮的值改为"哎呀"
+            this.value = "哎呀";
+        }
+    }
+
+    /*inputs[i].value = "哎呀"; 的写法会报错，因为页面加载时i的值为inputs.length,
+      超过了伪数组的索引*/
+</script>
+</body>
+</html>

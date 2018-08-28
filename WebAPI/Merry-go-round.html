@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转木马</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #aec3de;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .wrap {
+            width: 1200px;
+            margin: 50px auto;
+        }
+
+        .slide {
+            height: 385px;
+            position: relative;
+        }
+
+        .slide li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            list-style: none;
+        }
+
+        .slide li img {
+            width: 100%;
+        }
+
+        .left, .right {
+            position: absolute;
+            top: 80%;
+            z-index: 99;
+            color: #fff;
+            font-family: "黑体";
+            font-weight: 700;
+            font-size: 40px;
+            width: 50px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, .3);
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .right {
+            right: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <div class="slide" id="slide">
+        <ul>
+            <li><a href="#"><img src="images/q1.png" alt=""/></a></li>
+            <li><a href="#"><img src="images/q2.png" alt=""/></a></li>
+            <li><a href="#"><img src="images/q3.png" alt=""/></a></li>
+            <li><a href="#"><img src="images/q4.png" alt=""/></a></li>
+            <li><a href="#"><img src="images/q5.png" alt=""/></a></li>
+        </ul>
+        <div class="arrow" id="arrow">
+            <a href="javascript:;" class="left" id="arrLeft">&lt;</a>
+            <a href="javascript:;" class="right" id="arrRight">&gt;</a>
+        </div>
+    </div>
+</div>
+
+<script src="common.js"></script>
+<script>
+    var config = [
+        {
+            width: 400,
+            top: 20,
+            left: 50,
+            opacity: 0.2,
+            zIndex: 2
+        },//0
+        {
+            width: 600,
+            top: 70,
+            left: 0,
+            opacity: 0.8,
+            zIndex: 3
+        },//1
+        {
+            width: 800,
+            top: 100,
+            left: 200,
+            opacity: 1,
+            zIndex: 4
+        },//2
+        {
+            width: 600,
+            top: 70,
+            left: 600,
+            opacity: 0.8,
+            zIndex: 3
+        },//3
+        {
+            width: 400,
+            top: 20,
+            left: 750,
+            opacity: 0.2,
+            zIndex: 2
+        }//4
+
+    ];
+
+
+    window.onload = function () {
+        var box = my$("wrap");
+        var lis = box.getElementsByTagName("li");
+
+        var flag = true; //假设所有的动画都执行完毕----锁
+
+        function assign() {
+            for (var i = 0; i < lis.length; i++) {
+                animate(lis[i], config[i],function () {
+                    flag = true;
+                });
+            }
+        }
+
+        assign();
+
+        my$("wrap").onmouseover = function () {
+            my$("arrow").style.display = "block";
+        }
+
+        my$("wrap").onmouseout = function () {
+            my$("arrow").style.display = "none";
+        }
+
+        my$("arrLeft").onclick = function () {
+            if(flag){
+                flag = false;
+                config.unshift(config.pop());
+                assign();
+            }
+
+        }
+
+        my$("arrRight").onclick = function () {
+            if(flag){
+                flag = false;
+                config.push(config.shift());
+                assign();
+            }
+
+        }
+    }
+
+</script>
+</body>
+</html>

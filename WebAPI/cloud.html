@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: skyblue;
+        }
+
+        .nav {
+            border: 1px solid white;
+            background-color: #fff;
+            position: relative;
+            border-radius: 10px;
+            margin: 10px auto;
+            width: 800px;
+            height: 42px;
+        }
+
+        .nav span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 83px;
+            height: 42px;
+            background: url("images/cloud.gif") no-repeat;
+        }
+
+        .nav ul {
+            list-style: none;
+            position: absolute;
+            text-align: center;
+            line-height: 42px;
+        }
+
+        .nav li {
+            float: left;
+            width: 83px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            cursor:pointer;
+        }
+
+        .nav li:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <span id="cloud"></span>
+    <ul id="navBar">
+        <li>童子鸡</li>
+        <li>鸡肉卷</li>
+        <li>芒果圣代</li>
+        <li>骨肉相连</li>
+        <li>可乐</li>
+    </ul>
+</div>
+
+<script>
+    var span = my$("cloud");
+    var lis = my$("navBar").children;
+
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].onmouseover = onmouseoverHandle;
+        lis[i].onclick = onclickHandle;
+        lis[i].onmouseout = onmouseoutHandle;
+    }
+
+    function onmouseoverHandle() {
+        animate(span, this.offsetLeft);
+    }
+
+    var lastPosition = 0;
+    function onclickHandle() {
+        lastPosition = this.offsetLeft;
+    }
+
+    function onmouseoutHandle() {
+        animate(span,lastPosition);
+    }
+
+    function animate(element, target) {
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            var current = element.offsetLeft;
+            var step = (target - current) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            current += step;
+            element.style.left = current + "px";
+            if (current == target) {
+                clearInterval(element.timeId);
+            }
+        }, 20);
+    }
+
+    function my$(id) {
+        return document.getElementById(id);
+    }
+</script>
+</body>
+</html>

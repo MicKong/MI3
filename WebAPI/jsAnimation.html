@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            width:240px;
+            height:38px;
+            background-color: #3db9ec;
+            color:white;
+            border:0;
+            outline:0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            position: absolute;
+            top:60px;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="移动400px" id="btn1">
+<input type="button" value="移动800px" id="btn2">
+<div id="box"></div>
+
+<script>
+    my$("btn1").onclick = function () {
+        move(my$("box"),400);
+    }
+
+    my$("btn2").onclick = function () {
+        move(my$("box"),800);
+    }
+
+    function move(element,target) {
+        clearInterval(element.timeId); //清除定时器，保证只产生一个定时器
+
+        element.timeId = setInterval(
+            function () {
+            var current = element.offsetLeft; //获取div当前位置,数字类型没有px
+            var step = 10; //每次移动的距离
+
+            step = current < target ? step : -step; //当前位置小于目标位置则正向移动，否则反向
+
+            current += step; //每次移动后的距离
+
+            //判断当前移动的位置是否到达目标位置
+            if(Math.abs(target - current) > Math.abs(step)){
+                element.style.left = current + "px";
+            }else{
+                element.style.left = target + "px";
+                clearInterval(element.timeId);
+            }
+        },10);
+    }
+
+    function my$(id) {
+        return document.getElementById(id);
+    }
+</script>
+</body>
+</html>

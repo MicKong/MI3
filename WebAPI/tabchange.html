@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .hd {
+            width: 100%;
+            height: 60px;
+        }
+
+        span {
+            list-style: none;
+            display: block;
+            float: left;
+            width:100px;
+            height: 100%;
+            background-color: #ccc;
+            text-align: center;
+            line-height: 60px;
+            cursor:pointer;
+        }
+
+        .box {
+            margin: 100px auto 0;
+            width: 400px;
+            height: 300px;
+            border: 1px solid skyblue;
+            box-shadow: 0 0 20px #000;
+        }
+
+        .bd{
+            width:100%;
+            height:240px;
+        }
+        .hd span.current{
+            background-color: skyblue;
+        }
+
+        .bd li{
+            height: 100%;
+            display:none;
+            text-align: center;
+            font: 2em/240px Serif;
+            color:#fff;
+        }
+        .bd li.current{
+            display: block;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="hd">
+            <span class="current">火影</span>
+            <span>死神</span>
+            <span>海贼王</span>
+            <span>游戏王</span>
+    </div>
+    <div class="bd">
+        <ul>
+            <li class="current">我要成为火影！</li>
+            <li>我可是要成为海贼王的男人</li>
+            <li>守护露琪亚</li>
+            <li>这次抽牌将赌上我的一切</li>
+        </ul>
+    </div>
+</div>
+<script>
+    var spans = document.getElementsByTagName("span");
+    var lis = document.getElementsByTagName("li");
+
+    for(var i = 0; i < spans.length; i++){
+        spans[i].setAttribute("index",i);
+
+        spans[i].onclick = function () {
+            for(var j = 0; j < spans.length; j++){
+                spans[j].removeAttribute("class");
+            }
+            this.className = "current";
+
+            var num = this.getAttribute("index");
+            for(var k = 0; k < lis.length; k++){
+                lis[k].removeAttribute("class");
+            }
+            lis[num].className = "current";
+        };
+    }
+
+</script>
+</body>
+</html>
