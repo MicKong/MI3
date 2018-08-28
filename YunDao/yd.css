@@ -1,0 +1,316 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fafafa;
+}
+
+li {
+    list-style: none;
+}
+
+.clearfix:after {
+    content:"";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix{*zoom:1;}
+/* 顶部导航栏开始 */
+.header {
+    height: 100px;
+    background-color: white;
+}
+
+.header-inner {
+    width: 1200px;
+    height: 100px;
+    margin: 0 auto;
+    line-height: 100px; /* 行高会继承，所以放父级这比放.nav li里好 */
+}
+
+.logo {
+    float: left;
+}
+
+.nav {
+    float: right;
+}
+
+.nav li {
+    float: left;
+    margin: 0 20px;
+}
+
+.nav li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.nav li a:hover {
+    color: #2288f6;
+}
+
+/* 顶部导航栏结束 */
+
+/* banner start */
+.banner {
+    height: 620px;
+    background: url(images/banner.jpg) top center;
+}
+
+.banner ul {
+    width: 70px;
+    height: 14px;
+    background-color: rgba(0, 0, 0, .3);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -35px;
+    border-radius: 8px;
+}
+
+.banner li {
+    float: left;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 3px 0 0 12px;
+}
+
+/* banner end */
+
+/* service start */
+.service,.associated {
+    width: 1055px;
+    margin: 75px auto 0;
+}
+
+.service-hd,.case-hd,.associated-hd{
+    margin: 0 25px;
+    border-top: 1px solid #ccc;
+}
+
+.service-hd h3,.case-hd h3,.associated h3 {
+    width: 167px;
+    height: 46px;
+    margin: -15px auto 0;
+}
+
+.service-hd p {
+    font-size: 12px;
+    color: #666;
+    line-height: 26px;
+    text-align: center;
+
+    margin: 15px auto 0;
+}
+
+.service-bd {
+    margin-top: 40px;
+    overflow: hidden;
+}
+
+.service-bd li, .case-bd li {
+    width: 323px;
+    height: 510px;
+    background-color: #fff;
+    float: left;
+    border: 1px solid #e7e8e9;
+}
+
+.service-bd img {
+    margin: 35px 40px;
+}
+
+.service-bd h3 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    height: 40px;
+    color: #333;
+}
+
+.service-bd p {
+    font-size: 12px;
+    color: #666;
+    width: 230px;
+    margin: 0 auto;
+    line-height: 26px;
+}
+
+.middle {
+    margin: 0 40px;
+}
+
+.middle img {
+    margin: 35px 55px;
+}
+
+.service-bd a {
+    display: block;
+    width: 148px;
+    height: 38px;
+    border: 1px solid #ff9412;
+    margin: 30px auto 0;
+    text-align: center;
+    line-height: 38px;
+    text-decoration: none;
+    color: #ff9412;
+    border-radius: 5px;
+}
+
+.service-bd a:hover {
+    color: #fff;
+    background-color: #ff9412;
+}
+
+/* service end */
+
+/*case start*/
+.case {
+    width: 1055px;
+    background-color: white;
+    margin: 85px auto 0;
+    border:60px solid white;
+    border-left: 100px solid white;
+    border-right: 100px solid white;
+}
+
+.case-bd {
+    margin-top: 60px;
+    position: relative;
+    /*overflow: hidden; //不能用此方式清除浮动，因为左右箭头还要跑出去*/
+}
+
+.case-bd li {
+    width: 324px;
+    height: 210px;
+    float: left;
+    border: 1px #ccc solid;
+    position: relative;
+}
+
+.case-bd-middle {
+    margin: 0 38px;
+}
+
+.text {
+    width: 100%;
+    height: 45px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 45px;
+    background-color: rgba(0, 0, 0, .3);
+    color: white;
+    text-align: center;
+    font-size: 12px;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .3) url("images/magnifier.png") no-repeat center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.case-bd li:hover .mask {
+    display: block;
+}
+
+.left {
+    position: absolute;
+    top: 50%;
+    left: -90px;
+    margin-top: -35px;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-size: 3em;
+    line-height: 55px;
+    text-align: center;
+}
+
+.right {
+    position: absolute;
+    top: 50%;
+    right: -90px;
+    margin-top: -35px;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-size: 3em;
+    line-height: 55px;
+    text-align: center;
+}
+
+/*case end*/
+
+/*associated start*/
+.media-bd{
+    margin-top: 40px;
+    width: 1049px;
+    height: 240px;
+    overflow: hidden;
+}
+
+.media-bd ul{
+    width: 1060px;
+}
+
+.media-bd li{
+    width: 210px;
+    height: 60px;
+    float:left;
+    border-right: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+    text-align: center;
+    padding-top: 20px;
+}
+/*associated end*/
+/*页面底部开始*/
+.footer{
+    height:165px;
+    background-color:#212425;
+    margin-top:100px;
+    overflow: hidden; /*解决高度塌陷问题,或者加个外边框*/
+}
+.subnav{
+    text-align: center;
+    margin-top: 50px;
+    color:#f0f1f1;
+    font-size: 14px;
+}
+.subnav a{
+    color:#f0f1f1;
+    text-decoration: none;
+    padding:0 5px;
+    font-size: 14px;
+}
+
+.subnav a:hover{
+    color:#2288f6;
+}
+.footer p{
+    text-align: center;
+    color:#888;
+    margin-top:30px;
+}
+/*页面底部结束*/
+
+
+
