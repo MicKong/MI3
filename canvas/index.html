@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+            background-image: url("");
+        }
+    </style>
+</head>
+<body>
+
+<!--1.准备画布 画布是白色并且默认大小为300*150-->
+<canvas width="1300" height="600"></canvas>
+<!--2.利用js来准备绘画工具-->
+<script>
+
+    var myCanvas = document.querySelector("canvas");
+    var ctx = myCanvas.getContext("2d");
+
+    ctx.translate(650,350);
+    var angle = 0;
+    setInterval(function () {
+        angle += Math.PI/360;
+        ctx.rotate(angle);
+        ctx.beginPath();
+        ctx.strokeStyle = getRandowColor();
+        ctx.strokeRect(-50,-50,200,200);
+    },500);
+
+    function getRandowColor(){
+        return "rgb("+Math.floor(Math.random() * 256)+","+Math.floor(Math.random() * 256)+
+            ","+Math.floor(Math.random() * 256)+")";
+    }
+</script>
+
+</body>
+</html>

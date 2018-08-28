@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+            background: url("image/psb.jpg") no-repeat;
+        }
+    </style>
+</head>
+<body>
+<canvas width="800" height="550"></canvas>
+<script>
+
+    var Person = function (ctx) {
+        //绘制工具
+        this.ctx = ctx || document.querySelector("canvas").getContext("2d");
+        //图片路径
+        this.src = "image/04.png";
+        //画布大小
+        this.canvasWidth = this.ctx.canvas.width;
+        this.canvasHeight = this.ctx.canvas.height;
+
+        //行走相关参数
+        this.stepSize = 20;
+        //0对应精灵图里的第一排,0前走,1左2右3后
+        this.direction = 0;
+
+        //x方向偏移步数
+        this.stepX = 0;
+
+        //y方向偏移步数
+        this.stepY = 0;
+    };
+
+    Person.prototype.init = function () {
+        var that = this;
+        //1.加载图片
+        this.loadImage(function (image) {
+            that.imageWidth = image.width; //图片大小
+            that.imageHeight = image.height;
+
+            that.personWidth = that.imageWidth / 4; //人物的大小
+            that.personHeight = that.imageHeight / 4;
+
+            that.x0 = that.canvasWidth / 2 - that.personWidth / 2; //绘制图片的起点
+            that.y0 = that.canvasHeight / 2 - that.personHeight / 2;
+
+            //2。默认绘制在中心位置正面朝外
+            that.ctx.drawImage(image, 0, 0, that.personWidth, that.personHeight, that.x0, that.y0,
+                that.personWidth, that.personHeight);
+
+            //3.能通过方向键去控制人物行走
+            that.index = 0;
+            document.onkeydown = function (e) {
+                if (e.keyCode == 37) { //上38 右39 下40 左37
+                    that.direction = 1;
+                    that.stepX--;
+                    that.drawImage(image);
+                } else if (e.keyCode == 38) {
+                    that.direction = 3;
+                    that.stepY--;
+                    that.drawImage(image);
+                } else if (e.keyCode == 39) {
+                    that.direction = 2;
+                    that.stepX++;
+                    that.drawImage(image);
+                } else if (e.keyCode == 40) {
+                    that.direction = 0;
+                    that.stepY++;
+                    that.drawImage(image);
+                }
+                that.drawImage(image);
+            }
+
+        });
+    };
+
+    //加载图片,业务要单一就是加载图片而已
+    Person.prototype.loadImage = function (callback) {
+        var image = new Image();
+        image.onload = function () {
+            callback && callback(image);
+        };
+        image.src = this.src;
+    };
+
+    //绘制图片
+    Person.prototype.drawImage = function (image) {
+        this.index++;
+        this.ctx.clearRect(0,0,this.canvasWidth,this.canvasHeight);
+        this.ctx.drawImage(image,
+            this.index * this.personWidth,
+            this.direction * this.personHeight,
+            this.personWidth,
+            this.personHeight,
+            this.x0 + this.stepX * this.stepSize, this.y0 + this.stepY * this.stepSize,
+            this.personWidth,
+            this.personHeight);
+
+        if (this.index >= 3) {
+            this.index = 0;
+        }
+
+    };
+
+    var person = new Person();
+    person.init();
+
+</script>
+</body>
+</html>
