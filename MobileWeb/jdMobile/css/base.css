@@ -1,0 +1,77 @@
+/*========================== reset css ===========================*/
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box; /*c3内减模式,防止内容溢出,不出现滚动条*/
+    -webkit-box-sizing: border-box;
+}
+
+body{
+    font-size: 14px;
+    font-family: "Microsoft YaHei",sans-serif;
+    color:#333;
+    background-color: #f5f5f5;
+}
+
+ul,ol{
+    list-style:none;
+}
+
+a{
+    text-decoration: none;
+    color:#333;
+}
+
+input,textarea{
+    border:none;
+    outline:none;
+    resize: none; /*不允许改变尺寸*/
+    /*移动端特有,元素的外观,none为没有任何样式*/
+    -webkit-appearance: none;
+}
+
+/*========================== common css ===========================*/
+.f_left{
+    float: left;
+}
+.f_right{
+    float:right;
+}
+.clearFix::before,
+.clearFix::after{
+    content:"";
+    display: block;
+    visibility: hidden;
+    height:0;
+    line-height: 0;
+    clear:both;
+}
+
+.m_l10{
+    margin-left: 10px;
+}
+
+.m_r10{
+    margin-right: 10px;
+}
+
+/*使用精灵图的公用样式*/
+[class^="icon_"],[class=" icon_"]{
+    background-repeat: no-repeat;
+    background-image: url("../images/sprites.png");
+    background-size: 200px 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

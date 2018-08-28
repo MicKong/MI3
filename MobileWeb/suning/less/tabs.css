@@ -1,0 +1,13 @@
+.sn_tabs {
+  width: 100%;
+}
+.sn_tabs ul {
+  width: 100%;
+}
+.sn_tabs ul li {
+  width: 20%;
+  float: left;
+}
+.sn_tabs ul li a {
+  width: 100%;
+}

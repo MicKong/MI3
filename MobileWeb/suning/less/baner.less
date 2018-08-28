@@ -1,0 +1,44 @@
+.sn_banner {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  ul {
+    &:first-child {
+      width: 100% * @imagesNum;
+      transform: translateX(-100% / @imagesNum);
+      -webkit-transform: translateX(-100% / 10);
+      li {
+        width: 100% / @imagesNum;
+        float: left;
+        a {
+          display: block;
+          width: 100%;
+          img {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &:last-child {
+      position: absolute;
+      right:20rem / @baseFontSize;
+      bottom:20rem / @baseFontSize;
+      li{
+        width:12rem / @baseFontSize;
+        height:12rem / @baseFontSize;
+        border-radius: 50%;
+        background: #fff;
+        float: left;
+        margin-left:12rem /@baseFontSize;
+        &.now{
+          background: @snColor;
+        }
+      }
+
+    }
+
+  }
+}

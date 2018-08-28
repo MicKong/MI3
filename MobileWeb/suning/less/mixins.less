@@ -1,0 +1,11 @@
+//适配函数
+//less没有循环语法,使用递归进行遍历
+
+.adapterMixin(@index) when(@index > 0){
+  @media (min-width: extract(@adapterDeviceList,@index)){
+    html{
+      font-size: @baseFontSize / @psdWidth * extract(@adapterDeviceList,@index);
+    }
+  }
+  .adapterMixin(@index - 1);
+}

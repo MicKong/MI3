@@ -1,0 +1,10 @@
+.sn_banner {
+  width: 100%;
+  overflow: hidden;
+}
+.sn_banner ul:first-child {
+  width: 80%;
+}
+.sn_banner ul:first-child li {
+  width: 100%;
+}

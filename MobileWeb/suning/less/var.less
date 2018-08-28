@@ -1,0 +1,22 @@
+@charset "UTF-8";
+//变量
+//rem适配方案不好维护,因为设备会更新,设计稿尺寸户变
+//适配十几种主流设备
+@adapterDeviceList:750px,720px,640px,540px,480px,424px,414px,400px,384px,375px,360px,320px;
+
+//设计稿尺寸
+@psdWidth:750px;
+
+//预设基准值
+@baseFontSize:100px;
+
+//
+@len:length(@adapterDeviceList);
+
+//变量声名好了,功能的实现交给函数(mixins.less)
+
+//苏宁主题颜色
+@snColor:#fabc09;
+
+//轮播图张数
+@imagesNum:10;
