@@ -1,1 +1,1 @@
-# MI3
+# small projects
